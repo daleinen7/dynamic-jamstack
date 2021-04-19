@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: Process Files
+permalink: /process-files.html
+---
+<div id="site">
+  <form
+    id="image-form"
+    action="/.netlify/functions/convert-image"
+    method="POST"
+  >
+    <label for="imageURL">URL of an image to convert</label>
+    <input type="url" name="imageURL" required>
+    <button type="submit">Convert</button>
+  </form>
+
+  <div id="converted"></div>
+  
+</div>
+
+<script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    // get image url from form
+    const imageURL = form.elements.imageURL.value;
+
+    // send the image off for processing
+    const promise = fetch('/.netlify/functions/convert-image', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({imageURL}),  
+    })
+      .then(result => result.json())
+      .catch(error => console.error(error));
+  })
+</script>
