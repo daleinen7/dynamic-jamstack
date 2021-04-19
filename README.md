@@ -3,3 +3,9 @@ I wanted to understand more about how to make Jamstack dyanamic. I wanted to lea
 
 ## Article these are Based On
 I am basing all these on [this article](https://www.smashingmagazine.com/2019/12/dynamic-async-functionality-jamsstack-websites/)
+
+## Start
+Start the dev servier with 
+  npm run serve
+Build Command
+  npm run build
