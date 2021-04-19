@@ -10,13 +10,13 @@ permalink: /load-data-async.html
     <button type="submit">Search</button>
   </form>
 
-  <ul id="search-results"></ul>
+  <ul id="results-list"></ul>
   
 </div>
 
 <script>
   let form = document.querySelector('form');
-  const sr = document.getElementById('search-results');
+  let list = document.getElementById('results-list');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -29,8 +29,18 @@ permalink: /load-data-async.html
       .then(response => response.json())
       .catch(error => console.error(error));
 
+    // remove existing results 
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+
     // add results to DOM
-    
+    characters.results.forEach(character => {
+      let li = document.createElement('li');
+      list.appendChild(li);
+
+      li.innerHTML += character.name;
+    })
   }
 
   form.addEventListener('submit', handleSubmit);
