@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>{{ title }} | {{ site.name }}</title>
+    <link rel="stylesheet" href="{{ 'css/style.css' | url }}">
+  </head>
+  <body>
+
+  <h1><a href="/">Dynamic Jamstack Demos</a></h1>
+  <h2>{{ title }}</h2>
+
+  <nav>
+    <ul>
+      <li><a href="load-data-async.html">Load Data Asynchronously</a></li>
+      <li><a href="process-files.html">Process Files</a></li>
+      <li><a href="read-write-to-db.html">Read and Write to a Database</a></li>
+      <li><a href="authentication.html">Authentication</a></li>
+    </ul>
+  </nav>
+  {{ content | safe }}
+  <script src="{{ 'js/scripts.js' | url }}"></script>
+  </body>
+</html>

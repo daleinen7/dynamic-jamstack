@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+title: Async Fetch
+permalink: /load-data-async.html
+---
+<div id="site">
+  <form>
+    <label for="name">Find characters by name</label>
+    <input type="text" id="name" name="name" required />
+    <button type="submit">Search</button>
+  </form>
+
+  <ul id="search-results"></ul>
+  
+</div>
+
+<script>
+  let form = document.querySelector('form');
+  const sr = document.getElementById('search-results');
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const name = form.elements.name.value;
+
+    const characters = await fetch(
+      `https://rickandmortyapi.com/api/character/?name=${name}`,
+    )
+      .then(response => response.json())
+      .catch(error => console.error(error));
+
+    // add results to DOM
+    
+  }
+
+  form.addEventListener('submit', handleSubmit);
+</script>
