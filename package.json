@@ -9,8 +9,5 @@
     "serve": "npx @11ty/eleventy --serve --input=src --output=dist --formats=html,njk,gif,png,jpg,webp,css,js",
     "build": "npx @11ty/eleventy --input=src --output=dist --formats=html,njk,gif,png,jpg,webp,css,js"
   },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "jimp": "^0.16.1"
-  }
+  "dependencies": {}
 }
